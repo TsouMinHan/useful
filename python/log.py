@@ -1,6 +1,7 @@
 import logging
 from datetime import datetime
 from pathlib import Path
+from bcolor import Bcolors as bc
 
 class CustomFormatter(logging.Formatter):
     """Logging Formatter to add colors and count warning / errors"""
@@ -34,8 +35,10 @@ file_handler = logging.FileHandler(log_name)
 stream_handler.setLevel(logging.DEBUG)
 file_handler.setLevel(logging.DEBUG)
 
+file_formater = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s (%(filename)s:%(lineno)d)"
+)
 stream_handler.setFormatter(CustomFormatter())
-file_handler.setFormatter(CustomFormatter())
+file_handler.setFormatter(file_formater)
 
 logger.addHandler(stream_handler)
 logger.addHandler(file_handler)
