@@ -19,3 +19,4 @@ file_handler.setFormatter(file_formater)
 
 logger.addHandler(stream_handler)
 logger.addHandler(file_handler)
+logger.setLevel(logging.DEBUG)
